@@ -21,7 +21,7 @@ public class CategoriesServiceImpl implements CategoriesInterface {
 	public boolean addCategories(CategoriesDTO CtegoriesDTO) {
 
 		Categories c = new Categories(CtegoriesDTO.getName());
-
+		
 		try {
 			categoriesRopository.save(c);
 			return true;
@@ -55,9 +55,7 @@ public class CategoriesServiceImpl implements CategoriesInterface {
 
 		try {
 			Categories c = categoriesRopository.findById(id).get();
-
 			c.setName(categoriesDTO.getName());
-
 			categoriesRopository.save(c);
 			return true;
 		} catch (Exception e) {
@@ -74,14 +72,7 @@ public class CategoriesServiceImpl implements CategoriesInterface {
 	}
 
 	@Override
-	public List<Categories> getAllCategories(int page) {
-	    // Set the page size (e.g., 10 categories per page)
-	    int pageSize = 10; 
-	    Pageable pageable = PageRequest.of(page, pageSize, Sort.by("name")); // Sort by name
-
-	    Page<Categories> categoryPage = categoriesRopository.findAll(pageable);
-	    
-	    return categoryPage.getContent(); // Return the list of categories for the current page
-	}
-
+	 public Page<Categories> getAllCategories(Pageable pageable) {
+        return categoriesRopository.findAll(pageable);
+}
 }

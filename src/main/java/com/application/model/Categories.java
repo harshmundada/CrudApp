@@ -33,11 +33,11 @@ public class Categories {
 		return name;
 	}
 	public void setName(String name) {
-		name = name;
+		this.name = name;
 	}
 	public Categories(String name) {
 		super();
-		name = name;
+		this.name = name;
 	}
 	
 	 public Categories()

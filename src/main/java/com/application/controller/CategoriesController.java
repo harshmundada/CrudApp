@@ -3,6 +3,9 @@ package com.application.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,6 +33,7 @@ public class CategoriesController {
 
 	@PostMapping
 	public String addCategories(@RequestBody CategoriesDTO categoriesDTO) {
+		
 		boolean b = categoriesInterface.addCategories(categoriesDTO);
 
 		if (b)
@@ -72,11 +76,15 @@ public class CategoriesController {
 		return  new ResponseEntity<String>(c.toString(), HttpStatus.FOUND);
 		
 	  }
-	@GetMapping
-    public ResponseEntity<List<Categories>> getAllCategories(
-    		@RequestParam(name = "page", defaultValue = "0") int page) {
-        List<Categories> categories = categoriesInterface.getAllCategories(page);
-        return new ResponseEntity<>(categories, HttpStatus.OK);
-    }
+	  @GetMapping
+	    public ResponseEntity<Page<Categories>> getAllCategories(
+	            @RequestParam(name = "page", defaultValue = "0") int page,
+	            @RequestParam(name = "size", defaultValue = "10") int size) {
+	        
+	        Pageable pageable = PageRequest.of(page, size);  
+	        Page<Categories> categoriesPage = categoriesInterface.getAllCategories(pageable);  // Call service method
+	        
+	        return new ResponseEntity<>(categoriesPage, HttpStatus.OK);  // Return the Page object
+	    }
 
 }

@@ -13,25 +13,25 @@ public class ProdcutDTO {
 		return ProductName;
 	}
 	public void setProductName(String productName) {
-		ProductName = productName;
+		this.ProductName = productName;
 	}
 	public String getManufacturingDate() {
 		return ManufacturingDate;
 	}
 	public void setManufacturingDate(String manufacturingDate) {
-		ManufacturingDate = manufacturingDate;
+		this.ManufacturingDate = manufacturingDate;
 	}
 	public long getPrice() {
 		return Price;
 	}
 	public void setPrice(long price) {
-		Price = price;
+		this.Price = price;
 	}
 	public String getExpDate() {
 		return ExpDate;
 	}
 	public void setExpDate(String expDate) {
-		ExpDate = expDate;
+		this.ExpDate = expDate;
 	}
 	
 	
@@ -39,7 +39,7 @@ public class ProdcutDTO {
 		return CategoriesId;
 	}
 	public void setCategoriesId(long categoriesId) {
-		CategoriesId = categoriesId;
+		this.CategoriesId = categoriesId;
 	}
 	@Override
 	public String toString() {

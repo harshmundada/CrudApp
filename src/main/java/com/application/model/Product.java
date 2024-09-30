@@ -30,7 +30,7 @@ public class Product {
 	}
 
 	public void setProductId(long productId) {
-		ProductId = productId;
+		this.ProductId = productId;
 	}
 
 	public String getProductName() {
@@ -38,7 +38,7 @@ public class Product {
 	}
 
 	public void setProductName(String productName) {
-		ProductName = productName;
+		this.ProductName = productName;
 	}
 
 	public String getManufacturingDate() {
@@ -46,7 +46,7 @@ public class Product {
 	}
 
 	public void setManufacturingDate(String manufacturingDate) {
-		ManufacturingDate = manufacturingDate;
+		this.ManufacturingDate = manufacturingDate;
 	}
 
 	public long getPrice() {
@@ -54,7 +54,7 @@ public class Product {
 	}
 
 	public void setPrice(long price) {
-		Price = price;
+		this.Price = price;
 	}
 
 	public String getExpDate() {
@@ -62,7 +62,7 @@ public class Product {
 	}
 
 	public void setExpDate(String expDate) {
-		ExpDate = expDate;
+		this.ExpDate = expDate;
 	}
 
 	
@@ -70,10 +70,10 @@ public class Product {
 	public Product( String productName, String manufacturingDate, long price, String expDate,
 			Categories categories) {
 		super();
-		ProductName = productName;
-		ManufacturingDate = manufacturingDate;
-		Price = price;
-		ExpDate = expDate;
+		this.ProductName = productName;
+		this.ManufacturingDate = manufacturingDate;
+		this.Price = price;
+		this.ExpDate = expDate;
 		this.categories = categories;
 	}
 
